@@ -1,10 +1,11 @@
+import os
 import logging
 import movielinks
 import time
 from telegram.ext import *
 from telegram import *
 
-API_KEY = '2013708582:AAFhnl-UxpLWx_em_EwzKHlOA3OrNADmiVg'
+API_KEY = os.environ['API_KEY']
 bot = Bot(token=API_KEY)
 MLINK = 'https://linkpdisk.com/share-video?videoid='
 admin_chat_id1 = 894936843
