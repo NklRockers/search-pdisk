@@ -1,0 +1,30 @@
+{
+    "name": "PDisk Movie Links Bot",
+    "description": "This Bot Needs Manuall Filters Adding",
+    "logo": "https://telegra.ph/PDisk-Movie-Links-Bot-10-04",
+    "keywords": [
+        "PDisk",
+        "Movie",
+        "Links"
+    ],
+    "website": "https://github.com/Anilkumar-Bathala",
+    "repository": "https://github.com/Anilkumar-Bathala/PDisk-Movie-Links-Bot.git",
+    "success_url": "https://telegram.dog/DarlingAnil",
+    "env": {
+        "API_KEY": {
+            "description": "Your Bot API KEY From @BotFather",
+            "value": ""
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
