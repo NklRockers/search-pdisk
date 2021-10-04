@@ -1,11 +1,11 @@
-from boto.s3.connection import S3Connection
+import os
 import logging
 import movielinks
 import time
 from telegram.ext import *
 from telegram import *
 
-API_KEY = S3Connection(os.environ['API_KEY'])
+API_KEY = os.environ('API_KEY')
 bot = Bot(token=API_KEY)
 MLINK = 'https://linkpdisk.com/share-video?videoid='
 admin_chat_id1 = 894936843
