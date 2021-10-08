@@ -26,7 +26,7 @@ you can use this bot as your own.
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/Anilkumar-Bathala/PDisk-Movie-Links-Bot">
+<a href="https://heroku.com/deploy?template=https://github.com/NklRockers/search-pdisk">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
