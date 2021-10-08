@@ -8,8 +8,8 @@ from telegram import *
 API_KEY = os.environ.get('API_KEY')
 bot = Bot(token=API_KEY)
 MLINK = 'https://linkpdisk.com/share-video?videoid='
-admin_chat_id1 = 1223296516
-admin_chat_id2 = 820893728
+admin_chat_id1 = 
+admin_chat_id2 = 
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
@@ -23,7 +23,6 @@ def start_command(update, context):
     1.Search
     2.Click
     3.Enjoy
-
     Developed by @NklRockers
     '''
     chat_id = update.message.chat.id
@@ -37,7 +36,7 @@ def movie(msg, username, chat_id, msg_id):
     movie_name_user_input = movie_name_user_input.split()
     movie_keys = movielinks.movies_ids.keys()
     try:
-        priority_size = 30
+        priority_size = 1
         result = {}
         final_result = {}
         for keys in movie_keys:
@@ -46,43 +45,22 @@ def movie(msg, username, chat_id, msg_id):
             for key in keys:
                 for movie_name_user_entered in movie_name_user_input:
                     if movie_name_user_entered == key:
-                        priority_size += 30
+                        priority_size += 1
                     else:
                         pass
             result[movie_name] = priority_size
-            priority_size = 30
+            priority_size = 1
 
         priority_range = list(result.values())
         # priority_movie_name = list(result.keys())
         highest_range = max(priority_range)
-        if highest_range > 30:
+        if highest_range > 1:
             for key, value in result.items():
                 if value not in final_result:
                     final_result[value] = [key]
-                else:
-                    final_result[value].append(key)
-
-            for name in final_result[highest_range]:
-                admin_reply = ''
-                for link in movielinks.movies_ids[name]:
-                    bot.send_message(chat_id=chat_id, text=MLINK + link, reply_to_message_id=msg_id)
-                    if admin_reply != name:
-                        
-        else:
-            keyboard1 = [
-                [InlineKeyboardButton('Click Here To Check Spelling', url='https://www.google.com/search?q='+msg+' movie')]
-            ]
-            keyboard2 = [
-                [InlineKeyboardButton('Developed By Anil', url='https://telegram.me/DarlingAnil')]
-            ]
-            reply_markup1 = InlineKeyboardMarkup(keyboard1)
-            reply_markup2 = InlineKeyboardMarkup(keyboard2)
-            
-            
-    except:
+                
        
-        
-
+    
 def movie_request(update, context):
     username = update.message.chat.username
     username = str(username)
