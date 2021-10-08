@@ -37,7 +37,7 @@ def movie(msg, username, chat_id, msg_id):
     movie_name_user_input = movie_name_user_input.split()
     movie_keys = movielinks.movies_ids.keys()
     try:
-        priority_size = 1
+        priority_size = 30
         result = {}
         final_result = {}
         for keys in movie_keys:
@@ -46,11 +46,11 @@ def movie(msg, username, chat_id, msg_id):
             for key in keys:
                 for movie_name_user_entered in movie_name_user_input:
                     if movie_name_user_entered == key:
-                        priority_size += 1
+                        priority_size += 30
                     else:
                         pass
             result[movie_name] = priority_size
-            priority_size = 1
+            priority_size = 30
 
         priority_range = list(result.values())
         # priority_movie_name = list(result.keys())
