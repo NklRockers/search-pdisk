@@ -8,8 +8,8 @@ from telegram import *
 API_KEY = os.environ.get('API_KEY')
 bot = Bot(token=API_KEY)
 MLINK = 'https://linkpdisk.com/share-video?videoid='
-admin_chat_id1 = 
-admin_chat_id2 = 
+admin_chat_id1 = 1223296516 
+admin_chat_id2 = 820893728
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
