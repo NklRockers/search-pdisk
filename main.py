@@ -58,9 +58,36 @@ def movie(msg, username, chat_id, msg_id):
             for key, value in result.items():
                 if value not in final_result:
                     final_result[value] = [key]
-                
-       
-    
+                else:
+                    final_result[value].append(key)
+
+            for name in final_result[highest_range]:
+                admin_reply = ''
+                for link in movielinks.movies_ids[name]:
+                    bot.send_message(chat_id=chat_id, text=MLINK + link, reply_to_message_id=msg_id)
+                    if admin_reply != name:
+                        bot.send_message(chat_id=admin_chat_id1, text='User : @'+username+' Asked Movie name : '+name+' #Available.')
+                        bot.send_message(chat_id=admin_chat_id2, text='User : @'+username+' Asked Movie name : '+name+' #Available.')
+                        admin_reply = name
+        else:
+            keyboard1 = [
+                [InlineKeyboardButton()]
+            ]
+            keyboard2 = [
+                [InlineKeyboardButton()]
+            ]
+            reply_markup1 = InlineKeyboardMarkup(keyboard1)
+            reply_markup2 = InlineKeyboardMarkup(keyboard2)
+            reply_msg = 'If the \'MOVIE NAME\' is incorrect please check the spelling in google.'
+            bot.send_message(chat_id=chat_id, text=reply_msg, reply_markup=reply_markup1, reply_to_message_id=msg_id)
+            bot.send_message(chat_id=chat_id, text='Otherwise we will upload your requested movie as soon as possible.', reply_markup=reply_markup2, reply_to_message_id=msg_id)
+            bot.send_message(chat_id=admin_chat_id1, text='User : @'+username+' Asked Movie name : '+msg+' #Not_Available Admin. Please upload movie as soon as possible.')
+            bot.send_message(chat_id=admin_chat_id2, text='User : @'+username+' Asked Movie name : '+msg+' #Not_Available Admin. Please upload movie as soon as possible.')
+    except:
+        bot.send_message(chat_id=chat_id, text='Your Movie Not Exists We Will Upload As Soon As Possible. ', reply_to_message_id=msg_id)
+        bot.send_message(chat_id=admin_chat_id1, text='User : @'+username+' Asked Movie name : '+msg+' #Not_Available Admin. Please upload movie as soon as possible.')
+        bot.send_message(chat_id=admin_chat_id2, text='User : @'+username+' Asked Movie name : '+msg+' #Not_Available Admin. Please upload movie as soon as possible.')
+
 def movie_request(update, context):
     username = update.message.chat.username
     username = str(username)
