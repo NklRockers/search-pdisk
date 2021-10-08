@@ -55,7 +55,7 @@ def movie(msg, username, chat_id, msg_id):
         priority_range = list(result.values())
         # priority_movie_name = list(result.keys())
         highest_range = max(priority_range)
-        if highest_range > 1:
+        if highest_range > 30:
             for key, value in result.items():
                 if value not in final_result:
                     final_result[value] = [key]
